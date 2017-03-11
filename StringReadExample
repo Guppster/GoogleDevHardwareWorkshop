@@ -5,6 +5,16 @@ void setup()
   
 void loop() 
 { 
+  String input = getInput();
+
+  if(input != "")
+  {
+      Serial.println(getInput());
+  }
+} 
+
+String getInput()
+{
   String content = ""; 
   char character; 
   
@@ -17,6 +27,6 @@ void loop()
   
   if (content != "") 
   { 
-    Serial.println(content); 
+    return content;
   } 
-} 
+}
