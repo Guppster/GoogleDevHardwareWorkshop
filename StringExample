@@ -1,0 +1,14 @@
+int duration = 1000;
+
+String s  = "this is a string";
+
+void setup() 
+{
+    Serial.begin(9600);
+}
+
+void loop()
+{
+    Serial.println(s);
+    delay(duration);
+}
