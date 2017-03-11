@@ -1,32 +1,15 @@
+String str = "";
+
 void setup() 
 { 
   Serial.begin(9600); // Initialize serial port 
 } 
   
 void loop() 
-{ 
-  String input = getInput();
-
-  if(input != "")
+{
+  if(Serial.available())
   {
-      Serial.println(getInput());
+    str = Serial.readString();
+    Serial.println(str);
   }
 } 
-
-String getInput()
-{
-  String content = ""; 
-  char character; 
-  
-  while(Serial.available()) 
-  { 
-    character = Serial.read(); 
-    content.concat(character); 
-    delay (10); 
-  } 
-  
-  if (content != "") 
-  { 
-    return content;
-  } 
-}
