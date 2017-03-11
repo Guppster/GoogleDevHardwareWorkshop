@@ -1,0 +1,51 @@
+int forwardPin = 11;
+int backwardPin = 10;
+
+int fast = 500;
+int stopped = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(forwardPin, OUTPUT);
+  pinMode(backwardPin, OUTPUT);
+}
+
+void loop()
+{
+  forward();
+
+  stop();
+
+  backward();
+
+  stop();
+}
+
+void backward()
+{ 
+  //Go backward fast
+  Serial.println("Going Backward");
+  analogWrite(forwardPin, stopped);
+  analogWrite(backwardPin, fast);
+  delay(5000);
+}
+
+void stop()
+{
+  //Take a break
+  Serial.println("Stop");
+  analogWrite(forwardPin, stopped);
+  analogWrite(backwardPin, stopped);
+  delay(2000);
+}
+
+void forward()
+{
+  //Go forward fast
+  Serial.println("Going Forward");
+  analogWrite(forwardPin, fast);
+  analogWrite(backwardPin, stopped);
+  delay(5000);
+}
+
